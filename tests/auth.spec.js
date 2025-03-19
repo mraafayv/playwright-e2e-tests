@@ -54,7 +54,7 @@ test.describe("Authentication Tests", () => {
 });
 
 //Test 3
-test("User should logout successfully", async ({ page }) => {
+test.only("User should logout successfully", async ({ page }) => {
   await page.goto("/login");
 
   await page.locator("#email-input").fill("test@maddox123.ai");
@@ -84,5 +84,5 @@ test("User should logout successfully", async ({ page }) => {
 
 //   await page.goto("/login");
 
-//   await expect(page).toHaveURL("/");
+//   await expect(page).toHaveURL("/")
 // });
