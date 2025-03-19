@@ -4,7 +4,7 @@ import { test, expect } from "@playwright/test";
 
 // Test 2
 test('test', async ({ page }) => {
-    await page.goto('http://localhost:3000/login');
+    await page.goto('/login');
    
     await page.locator('#email-input').fill('test@maddox123.ai');
     await page.locator('#password-input').fill('supersecure');
