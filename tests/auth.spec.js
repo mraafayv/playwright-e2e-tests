@@ -29,23 +29,45 @@ test.describe("Authentication Tests", () => {
       "Invalid email or password. Try again."
     );
   });
-});
 
+  //edge cases
+//   test("Empty fields should show validation error", async ({ page }) => {
+//     await page.goto("/login");
+
+//     await page.getByRole("button", { name: "Login" }).click();
+
+//     await expect(page.getByRole("paragraph")).toContainText(
+//         "Fields cannot be empty"
+//       );
+//   });
+
+//   test("SQL injection attempt should not work", async ({ page }) => {
+//     await page.goto("/login");
+//     await page.locator("#email-input").fill("admin");
+//     await page.locator("#password-input").fill("' OR 1=1 --");
+//     await page.getByRole("button", { name: "Login" }).click();
+
+//     await expect(page.getByRole("paragraph")).toContainText(
+//         "Invalid credentials"
+//       );
+//   });
+});
 
 //Test 3
 test("User should logout successfully", async ({ page }) => {
-    await page.goto("/login");
-  
-    await page.locator("#email-input").fill("test@maddox123.ai");
-    await page.locator("#password-input").fill("supersecure");
-    await page.getByRole("button", { name: "Login" }).click();
-  
-    await expect(page.getByRole("button", { name: "Logout" })).toBeVisible();
-    
-    await page.getByRole("button", { name: "Logout" }).click();
-    
-    await expect(page.getByRole("heading", { name: "Demo Login Form" })).toBeVisible();
-    await page.goto("/");
-    await expect(page).toHaveURL("/login");
-  });
-  
+  await page.goto("/login");
+
+  await page.locator("#email-input").fill("test@maddox123.ai");
+  await page.locator("#password-input").fill("supersecure");
+  await page.getByRole("button", { name: "Login" }).click();
+
+  await expect(page.getByRole("button", { name: "Logout" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Logout" }).click();
+
+  await expect(
+    page.getByRole("heading", { name: "Demo Login Form" })
+  ).toBeVisible();
+  await page.goto("/");
+  await expect(page).toHaveURL("/login");
+});
