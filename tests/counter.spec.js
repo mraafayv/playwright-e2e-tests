@@ -3,7 +3,7 @@
 import { test, expect } from "@playwright/test";
 
 // Test 2
-test('test', async ({ page }) => {
+test('Counter should increment, decrement, and reset correctly', async ({ page }) => {
     await page.goto('/login');
    
     await page.locator('#email-input').fill('test@maddox123.ai');
